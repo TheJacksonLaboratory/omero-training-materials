@@ -45,7 +45,7 @@ def unpack_data(conn, user_list, groupname, hostname, ln_s, output):
         newcli.loadplugins()
         new_uuid = newconn.getSession().getUuid().val
         newcli.invoke(['sessions', 'login', '-u', user,
-                       '-k', new_uuid])
+                       '-k', new_uuid, '-s', hostname])
         if ln_s:
             newcli.invoke(['-k', new_uuid, '-s', hostname,
                            '-u', user, 'transfer', 'unpack',
