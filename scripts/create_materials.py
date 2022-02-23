@@ -1,5 +1,6 @@
 import ezomero
 import os
+import argparse
 from omero.cli import CLI
 from omero.plugins.sessions import SessionsControl
 from omero.plugins.user import UserControl
@@ -33,7 +34,7 @@ def create_users(cli, gid, user_list, session_uuid, hostname):
                     ])
 
 
-def unpack_data(conn, user_list, groupname, hostname):
+def unpack_data(conn, user_list, groupname, hostname, ln_s, output):
     data = os.path.join(
             os.path.dirname(os.path.realpath(__file__)),
             "../data/training_pack.zip")
@@ -45,13 +46,22 @@ def unpack_data(conn, user_list, groupname, hostname):
         new_uuid = newconn.getSession().getUuid().val
         newcli.invoke(['sessions', 'login', '-u', user,
                        '-k', new_uuid])
-        newcli.invoke(['-k', new_uuid, '-s', hostname,
-                       '-u', user, 'transfer', 'unpack',
-                       data
-                       ])
+        if ln_s:
+            newcli.invoke(['-k', new_uuid, '-s', hostname,
+                           '-u', user, 'transfer', 'unpack',
+                           data,
+                           '--output', output,
+                           '--ln_s_import']
+                          )
+        else:
+            newcli.invoke(['-k', new_uuid, '-s', hostname,
+                           '-u', user, 'transfer', 'unpack',
+                           data,
+                           '--output', output]
+                          )
 
 
-def create_all(conn, user_list, hostname):
+def create_all(conn, user_list, hostname, ln_s, output):
     training_group_name = "training"
     cli = CLI()
     cli.loadplugins()
@@ -62,16 +72,29 @@ def create_all(conn, user_list, hostname):
     cli.invoke(['sessions', 'login', '-k', session_uuid, '-s', hostname])
     group_id = create_group(cli, training_group_name, session_uuid, hostname)
     create_users(cli, group_id, user_list, session_uuid, hostname)
-    unpack_data(conn, user_list, training_group_name, hostname)
+    unpack_data(conn, user_list, training_group_name, hostname, ln_s, output)
     return
 
 
 if __name__ == "__main__":
+    description = "One-command training data creation script"
+    parser = argparse.ArgumentParser(description=description)
+    parser.add_argument(
+        '--output',
+        type=str,
+        help='Output folder for the training data',
+        default=os.path.join(os.path.dirname(os.path.realpath(__file__)),
+                             "../data/training_data/"))
+    parser.add_argument("--ln_s",
+                        default=False,
+                        action="store_true",
+                        help='Use in-place imports for training data')
+    args = parser.parse_args()
     fpath = os.path.join(
         os.path.dirname(os.path.realpath(__file__)), "user_list.txt")
     with open(fpath, 'r') as fp:
         user_list = fp.readlines()
     hostname = input("Enter hostname:")
     conn = ezomero.connect(host=hostname)
-    create_all(conn, user_list, hostname)
+    create_all(conn, user_list, hostname, args.ln_s, args.output)
     conn.close()

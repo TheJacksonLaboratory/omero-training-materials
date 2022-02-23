@@ -1,5 +1,4 @@
 from create_materials import create_all
-from omero.cli import CLI
 import ezomero
 import os
 
