@@ -59,6 +59,7 @@ def unpack_data(conn, user_list, groupname, hostname, ln_s, output):
                            data,
                            '--output', output]
                           )
+        newconn.close()
 
 
 def create_all(conn, user_list, hostname, ln_s, output):
@@ -84,7 +85,7 @@ if __name__ == "__main__":
         type=str,
         help='Output folder for the training data',
         default=os.path.join(os.path.dirname(os.path.realpath(__file__)),
-                             "../data/training_data/"))
+                             "../data/training_data"))
     parser.add_argument("--ln_s",
                         default=False,
                         action="store_true",
@@ -96,5 +97,6 @@ if __name__ == "__main__":
         user_list = fp.readlines()
     hostname = input("Enter hostname:")
     conn = ezomero.connect(host=hostname)
+    conn.c.enableKeepAlive(60)
     create_all(conn, user_list, hostname, args.ln_s, args.output)
     conn.close()
