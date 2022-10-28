@@ -25,7 +25,8 @@ def delete_contents(cli, user):
         print(f"deleting project {proj.id}")
         proj_id = proj.id
         if proj_id:
-            cli.invoke(['delete', 'Project:'+str(proj_id), '--include', 'Dataset,Image,Annotation'])
+            cli.invoke(['-k', uuid, '-s', "localhost",
+                        '-u', "localhost", 'delete', 'Project:'+str(proj_id), '--include', 'Dataset,Image,Annotation'])
     conn.close()
 
 
