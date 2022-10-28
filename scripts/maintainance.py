@@ -23,8 +23,8 @@ def delete_contents(cli, user):
     proj_id = None
     for proj in conn.getObjects("Project", opts={'owner': my_exp_id}):
         proj_id = proj.id
-    if proj_id:
-        cli.invoke(['delete', 'Project:'+str(proj_id), '--include', 'Dataset,Image,Annotation'])
+        if proj_id:
+            cli.invoke(['delete', 'Project:'+str(proj_id), '--include', 'Dataset,Image,Annotation'])
     conn.close()
 
 
