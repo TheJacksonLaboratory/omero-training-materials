@@ -27,6 +27,12 @@ def delete_contents(cli, user):
         if proj_id:
             cli.invoke(['-k', uuid, '-s', "localhost",
                         '-u', "localhost", 'delete', 'Project:'+str(proj_id), '--include', 'Dataset,Image,Annotation'])
+    for fa in conn.getObjects("FileAnnotation", opts={'owner': my_exp_id}):
+        print(f"deleting Figure {fa.id}")
+        fa_id = fa.id
+        if fa_id:
+            cli.invoke(['-k', uuid, '-s', "localhost",
+                        '-u', "localhost", 'delete', 'FileAnnotation:'+str(fa_id)])
     conn.close()
 
 
