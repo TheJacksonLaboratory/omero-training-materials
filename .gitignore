@@ -1,7 +1,7 @@
 # quarto ignore
 /.quarto/
-/quarto/index_files/
-/quarto/index.html
+/index_files/
+index.html
 
 ### macOS .gitignore
 # General
