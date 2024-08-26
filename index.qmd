@@ -159,6 +159,3 @@ At this point, make sure you are looking at your own images; check the top left 
 1. Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e. Plugins > OMERO > Connect To OMERO
 2. In the OMERO login dialog, click the wrench icon and then add the server address (ctomerodev.jax.org – NOTE THIS IS A DIFFERENT ADDRESS!) in the dialog. Click Apply. Now, log in with the provided details (the same you have been using for the webpage).
 3. Find and open any image (double-click the thumbnail) to make sure things work!
-
-# Day 2
-## Importing 
