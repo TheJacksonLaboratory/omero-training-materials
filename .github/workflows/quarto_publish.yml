@@ -41,4 +41,4 @@ jobs:
           run: |
             git config user.name "${{ github.actor }}"
             git config user.email "${{ github.actor_id }}+${{ github.actor }}@users.noreply.github.com"
-            quarto publish gh-pages . --no-browser
+            quarto publish gh-pages ./quarto --no-browser
