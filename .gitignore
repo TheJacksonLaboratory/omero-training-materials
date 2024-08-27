@@ -1,3 +1,14 @@
+# quarto ignore
+/.quarto/
+/index_files/
+index.html
+
+### macOS .gitignore
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
