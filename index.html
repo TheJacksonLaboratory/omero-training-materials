@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>index</title>
+<title>OMERO Workshop</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -54,6 +54,7 @@ ul.task-list li input[type="checkbox"] {
   <ul class="collapse">
   <li><a href="#browsing-images" id="toc-browsing-images" class="nav-link" data-scroll-target="#browsing-images">Browsing images</a></li>
   <li><a href="#tag-annotations" id="toc-tag-annotations" class="nav-link" data-scroll-target="#tag-annotations">Tag annotations</a></li>
+  <li><a href="#key-value-pair-annotations" id="toc-key-value-pair-annotations" class="nav-link" data-scroll-target="#key-value-pair-annotations">Key-Value pair annotations</a></li>
   <li><a href="#filtering-images" id="toc-filtering-images" class="nav-link" data-scroll-target="#filtering-images">Filtering images</a></li>
   <li><a href="#preview-viewer" id="toc-preview-viewer" class="nav-link" data-scroll-target="#preview-viewer">Preview viewer</a></li>
   <li><a href="#bulk-saving-rendering-settings" id="toc-bulk-saving-rendering-settings" class="nav-link" data-scroll-target="#bulk-saving-rendering-settings">Bulk saving rendering settings</a></li>
@@ -73,11 +74,32 @@ ul.task-list li input[type="checkbox"] {
 </div>
 <main class="content" id="quarto-document-content">
 
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">OMERO Workshop</h1>
+</div>
 
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
 
 
 <section id="overview-of-omero" class="level1">
 <h1>Overview of OMERO</h1>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/omero_overview.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Diagram showing OMERO.server connected to hardware and image data tasks"></p>
+</figure>
+</div>
 <p>OMERO is a software platform for visualizing, managing, and annotating scientific image data. OMERO lets you import and archive your images, annotate and tag them, record your experimental protocols, and export images in a number of formats. It also allows you to collaborate with colleagues by creating user groups with different permission levels. Finally, it provides a convenient interface for programmatic access to your image data.</p>
 <p>OMERO.web is a web-based interface that provides most of the core OMERO functions described above. You can explore the public JAX instance of OMERO.web at images.jax.org, where we have made some data publicly available. Note that this website is just a viewer for our public data and will not allow you to log in.</p>
 <p>OMERO instances at JAX are hosted by Research IT for JAX research labs.</p>
@@ -135,9 +157,16 @@ ul.task-list li input[type="checkbox"] {
 </figure>
 </div>
 </section>
+<section id="key-value-pair-annotations" class="level2">
+<h2 class="anchored" data-anchor-id="key-value-pair-annotations">Key-Value pair annotations</h2>
+<ol start="11" type="1">
+<li>In the right-hand panel, expand the Key-Value Pairs pane and start typing in the “Add Key” and “Add Value” text boxes to add key-value annotation pairs. For example, make a key “species” and value “mouse”. Find another image and label it with key “species” and value “human”.</li>
+<li>In the search bar on the top right of the screen, enter “species”. This should pull up both images you have labeled with key-value pairs. Now try searching for “species:mouse”. This should find only the image you labeled with the value of “mouse”.</li>
+</ol>
+</section>
 <section id="filtering-images" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-images">Filtering images</h2>
-<ol start="10" type="1">
+<ol start="13" type="1">
 <li>Click Browse for one of the images in the table to return to the Dataset. At this point, make sure you are looking at your own images; check the top left corner of the screen. If you are not, click that bar and navigate back to your user:</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -145,7 +174,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="visuals/group_selection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="group and user selection dropdown" width="300"></p>
 </figure>
 </div>
-<ol start="11" type="1">
+<ol start="14" type="1">
 <li>Above the thumbnails, click Add Filter &gt; Name and enter “scram” to filter for all control images in this RNAi experiment.</li>
 </ol>
 </section>
@@ -153,7 +182,7 @@ ul.task-list li input[type="checkbox"] {
 <h2 class="anchored" data-anchor-id="preview-viewer">Preview viewer</h2>
 <div class="columns" style="display: flex">
 <div class="column" style="display: flex; justify-content: left; align-items: center;">
-<ol start="12" type="1">
+<ol start="15" type="1">
 <li>Select an image, click the Preview tab of the right panel and Turn off channels 1 and 4 by clicking on the blue and red buttons.</li>
 <li>Adjust the intensity levels of the green channel which is INCENP, and channel 3 which is Aurora-B. You can use the Histogram feature to help you with the adjustments.</li>
 </ol>
@@ -164,7 +193,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="bulk-saving-rendering-settings" class="level2">
 <h2 class="anchored" data-anchor-id="bulk-saving-rendering-settings">Bulk saving rendering settings</h2>
-<ol start="14" type="1">
+<ol start="17" type="1">
 <li>We want to compare levels of these targets across all images in the Dataset. Click Save to All. <img src="visuals/save_to_all.png" class="img-fluid" width="100"></li>
 <li>Thumbnails will be updated with new rendering settings, allowing comparison across the Dataset. Thumbnails can be zoomed using the slider below.</li>
 <li>In the left panel hierarchy, right-click on the siRNAi-HeLa Dataset and choose Rendering Settings… &gt; Set Imported and Save to return to original settings.</li>
@@ -177,7 +206,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="ratings" class="level2">
 <h2 class="anchored" data-anchor-id="ratings">Ratings</h2>
-<ol start="16" type="1">
+<ol start="20" type="1">
 <li>Filter images by Name “VRAQ D3D” and select the first image “VRAQ_01.r3d_D3D.dv”.</li>
 <li>In the General tab of the right-hand panel, expand the Ratings panel and click the stars to give this image a rating of 5.</li>
 <li>Filter images by Name “IN 02 D3D”, select the first image “IN_02.r3d_D3D.dv” and add a rating of 5.</li>
@@ -186,7 +215,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="omero.iviewer" class="level2">
 <h2 class="anchored" data-anchor-id="omero.iviewer">OMERO.iviewer</h2>
-<ol start="18" type="1">
+<ol start="23" type="1">
 <li>Now, clear the filtering by Name and instead, filter images by Rating of 5 to show only the 2 images we have just rated.</li>
 <li>Select both images, right click on the selected images in the tree and choose Open with… &gt; OMERO.iviewer. You can also find the Open with <img src="visuals/open_with.png" class="img-fluid" width="50"> option at the top of the right panel.</li>
 <li>Click the Crosshairs icon <img src="visuals/intensity_crosshairs.png" class="img-fluid" width="50"> at the top-right of the viewer to enable the pixel intensity display for the mouse pointer. Then mouse over the Image to see the pixel intensities for the channels turned on.</li>
@@ -196,7 +225,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="visuals/intensity_mouseover.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="iviewer showing mouseover with pixel intensities"></p>
 </figure>
 </div>
-<ol start="21" type="1">
+<ol start="26" type="1">
 <li>Our goal with this image is to measure the distance between centromeres, stained with ACA in the 4th Channel. Turn on ONLY the 4th channel and open the ROIs tab to the right.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -207,7 +236,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="drawing-rois-in-omero.iviewer" class="level2">
 <h2 class="anchored" data-anchor-id="drawing-rois-in-omero.iviewer">Drawing ROIs in OMERO.iviewer</h2>
-<ol start="22" type="1">
+<ol start="27" type="1">
 <li>Select the Line tool and draw a line between the centers of centromere pairs. In the ROIs table, click the 3 dots in the column header and choose to Show Area/Length. Click Save to Save ROIs.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -215,7 +244,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="visuals/roi_steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="iviewer on roi tab after following above instructions, with steps labelled"></p>
 </figure>
 </div>
-<ol start="23" type="1">
+<ol start="28" type="1">
 <li>You can also use Z-Projection (<img src="visuals/zproj.png" class="img-fluid" width="50"> at the bottom left) which might help find outlying centromeres. Note that Z-Projection may not work for images with very large stacks!</li>
 <li>Once done with drawing ROIs, click Save again.</li>
 <li>Click on the Select tool: <img src="visuals/select.png" class="img-fluid" alt="image of select tool like mouse arrow" width="50"></li>
@@ -224,7 +253,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="export-roi-statistics" class="level2">
 <h2 class="anchored" data-anchor-id="export-roi-statistics">Export ROI statistics</h2>
-<ol start="27" type="1">
+<ol start="32" type="1">
 <li>To export lengths and intensities of ONLY the 3rd channel (Aurora-B) turn on only this channel on the Settings tab of the right-hand panel.</li>
 <li>Export the Intensities, areas and line lengths into Excel. Select in the top-left corner ROIs &gt; Export as Table. This will export the values from the selected ROIs.</li>
 <li>Open the downloaded table in Excel or similar tool to see the lengths and intensity measurements for the ROIs.</li>
@@ -232,14 +261,14 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="omero.figure" class="level2">
 <h2 class="anchored" data-anchor-id="omero.figure">OMERO.figure</h2>
-<ol start="30" type="1">
+<ol start="35" type="1">
 <li>Back in the webclient window, select both 5-rated (VRAQ_01.r3d_D3D.dv and IN_02.r3d_D3D.dv), right-click them (on the left-side file list) and select Open with… -&gt; OMERO.figure.</li>
 <li>Change the paper orientation to horizontal in File &gt; Paper Setup.</li>
 </ol>
 </section>
 <section id="making-a-grid-in-omero.figure" class="level2">
 <h2 class="anchored" data-anchor-id="making-a-grid-in-omero.figure">Making a grid in OMERO.figure</h2>
-<ol start="32" type="1">
+<ol start="37" type="1">
 <li>Drag the images to place one above the other, select both and click the Grid layout button <img src="visuals/grid_button.png" class="img-fluid" width="50">. Resize to make the figure smaller. Copy both images and paste twice to make a grid with 2 rows with 3 columns.</li>
 <li>Select both panels from each column in turn and toggle on a different channel for each column. Select all panels and try different Z indices and Z-projections.</li>
 </ol>
@@ -251,7 +280,7 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="add-labels-to-figure" class="level2">
 <h2 class="anchored" data-anchor-id="add-labels-to-figure">Add labels to figure</h2>
-<ol start="34" type="1">
+<ol start="39" type="1">
 <li>Select the 2 panels in the left column, click on the Labels tab in the right panel and under Add Labels choose [image-name] from the drop-down menu. Click on the position chooser and choose “Left Vertical” from the options. Click Add.</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
@@ -262,13 +291,13 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="exporting-figures" class="level2">
 <h2 class="anchored" data-anchor-id="exporting-figures">Exporting figures</h2>
-<ol start="35" type="1">
+<ol start="40" type="1">
 <li>Click Export PDF and then when complete, click the Download button. Open the downloaded pdf in any suitable program and find the second page of the pdf. Click on the link to the image and see that you are navigated back to OMERO in your browser and the appropriate image, which was used in the Figure, is highlighted.</li>
 </ol>
 </section>
 <section id="viewing-other-users-figures" class="level2">
 <h2 class="anchored" data-anchor-id="viewing-other-users-figures">Viewing other users’ figures</h2>
-<ol start="36" type="1">
+<ol start="41" type="1">
 <li>Save the figure and see that the URL updates to a new URL for this figure which can be shared with colleagues. File &gt; Open can be used to open your own figures or those of colleagues.</li>
 <li>Click File &gt; Open, then click on the Owner button to select a figure of other users (your colleagues). Select and open other users’ figures and study them.</li>
 <li>With another user’s figure open, select File &gt; Save a Copy to save your own copy of your colleague’s figure. Note that you cannot directly save changes on their figure.</li>
