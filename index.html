@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.56">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>index</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="index_files/libs/clipboard/clipboard.min.js"></script>
+<script src="index_files/libs/quarto-html/quarto.js"></script>
+<script src="index_files/libs/quarto-html/popper.min.js"></script>
+<script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="index_files/libs/quarto-html/anchor.min.js"></script>
+<link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="index_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body>
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+<div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+  <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#overview-of-omero" id="toc-overview-of-omero" class="nav-link active" data-scroll-target="#overview-of-omero">Overview of OMERO</a>
+  <ul class="collapse">
+  <li><a href="#where-does-omero-fit-into-the-jax-image-data-ecosystem" id="toc-where-does-omero-fit-into-the-jax-image-data-ecosystem" class="nav-link" data-scroll-target="#where-does-omero-fit-into-the-jax-image-data-ecosystem">Where does OMERO fit into the JAX image data ecosystem?</a></li>
+  <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources">Other resources</a></li>
+  </ul></li>
+  <li><a href="#day-1-viewing-images-in-omero.web" id="toc-day-1-viewing-images-in-omero.web" class="nav-link" data-scroll-target="#day-1-viewing-images-in-omero.web">Day 1: Viewing images in OMERO.web</a>
+  <ul class="collapse">
+  <li><a href="#browsing-images" id="toc-browsing-images" class="nav-link" data-scroll-target="#browsing-images">Browsing images</a></li>
+  <li><a href="#tag-annotations" id="toc-tag-annotations" class="nav-link" data-scroll-target="#tag-annotations">Tag annotations</a></li>
+  <li><a href="#filtering-images" id="toc-filtering-images" class="nav-link" data-scroll-target="#filtering-images">Filtering images</a></li>
+  <li><a href="#preview-viewer" id="toc-preview-viewer" class="nav-link" data-scroll-target="#preview-viewer">Preview viewer</a></li>
+  <li><a href="#bulk-saving-rendering-settings" id="toc-bulk-saving-rendering-settings" class="nav-link" data-scroll-target="#bulk-saving-rendering-settings">Bulk saving rendering settings</a></li>
+  <li><a href="#ratings" id="toc-ratings" class="nav-link" data-scroll-target="#ratings">Ratings</a></li>
+  <li><a href="#omero.iviewer" id="toc-omero.iviewer" class="nav-link" data-scroll-target="#omero.iviewer">OMERO.iviewer</a></li>
+  <li><a href="#drawing-rois-in-omero.iviewer" id="toc-drawing-rois-in-omero.iviewer" class="nav-link" data-scroll-target="#drawing-rois-in-omero.iviewer">Drawing ROIs in OMERO.iviewer</a></li>
+  <li><a href="#export-roi-statistics" id="toc-export-roi-statistics" class="nav-link" data-scroll-target="#export-roi-statistics">Export ROI statistics</a></li>
+  <li><a href="#omero.figure" id="toc-omero.figure" class="nav-link" data-scroll-target="#omero.figure">OMERO.figure</a></li>
+  <li><a href="#making-a-grid-in-omero.figure" id="toc-making-a-grid-in-omero.figure" class="nav-link" data-scroll-target="#making-a-grid-in-omero.figure">Making a grid in OMERO.figure</a></li>
+  <li><a href="#add-labels-to-figure" id="toc-add-labels-to-figure" class="nav-link" data-scroll-target="#add-labels-to-figure">Add labels to figure</a></li>
+  <li><a href="#exporting-figures" id="toc-exporting-figures" class="nav-link" data-scroll-target="#exporting-figures">Exporting figures</a></li>
+  <li><a href="#viewing-other-users-figures" id="toc-viewing-other-users-figures" class="nav-link" data-scroll-target="#viewing-other-users-figures">Viewing other users’ figures</a></li>
+  </ul></li>
+  <li><a href="#homework-for-day-2-make-sure-you-can-run-fiji" id="toc-homework-for-day-2-make-sure-you-can-run-fiji" class="nav-link" data-scroll-target="#homework-for-day-2-make-sure-you-can-run-fiji">Homework for Day 2: Make sure you can run Fiji</a></li>
+  </ul>
+</nav>
+</div>
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="overview-of-omero" class="level1">
+<h1>Overview of OMERO</h1>
+<p>OMERO is a software platform for visualizing, managing, and annotating scientific image data. OMERO lets you import and archive your images, annotate and tag them, record your experimental protocols, and export images in a number of formats. It also allows you to collaborate with colleagues by creating user groups with different permission levels. Finally, it provides a convenient interface for programmatic access to your image data.</p>
+<p>OMERO.web is a web-based interface that provides most of the core OMERO functions described above. You can explore the public JAX instance of OMERO.web at images.jax.org, where we have made some data publicly available. Note that this website is just a viewer for our public data and will not allow you to log in.</p>
+<p>OMERO instances at JAX are hosted by Research IT for JAX research labs.</p>
+<section id="where-does-omero-fit-into-the-jax-image-data-ecosystem" class="level2">
+<h2 class="anchored" data-anchor-id="where-does-omero-fit-into-the-jax-image-data-ecosystem">Where does OMERO fit into the JAX image data ecosystem?</h2>
+<p>Importing images into OMERO is as simple as requesting access and uploading images to our automated import folders.</p>
+<p>Both the microscopy delivery folders and the OMERO import folders (jax/omero_drop/dropbox) are accessible via Globus for quick transfers <img src="visuals/globus_microscopy.png" class="img-fluid quarto-figure quarto-figure-center" alt="Screenshot of Globus web with split screen of microscopy delivery folders and omero import folders"></p>
+<p>Images in OMERO can be directly accessed via other analysis platforms such as QuPATH, ImageJ/Fiji, and Python. In Day 2, we will walk through an example workflow using Fiji.</p>
+</section>
+<section id="other-resources" class="level2">
+<h2 class="anchored" data-anchor-id="other-resources">Other resources</h2>
+<p><a href="https://jacksonlaboratory.sharepoint.com/sites/ResearchIT/SitePages/Getting-started-with-OMERO-at-JAX.aspx">Research IT OMERO documentiation</a></p>
+<p><a href="https://omero-guides.readthedocs.io/en/latest/">Official OMERO user documentation</a></p>
+</section>
+</section>
+<section id="day-1-viewing-images-in-omero.web" class="level1">
+<h1>Day 1: Viewing images in OMERO.web</h1>
+<section id="browsing-images" class="level2">
+<h2 class="anchored" data-anchor-id="browsing-images">Browsing images</h2>
+<div class="columns" style="display: flex">
+<div class="column" style="display: flex; justify-content: left; align-items: center;">
+<ol type="1">
+<li>Login to the webclient at http://ctomeroweb01.jax.org/ with the Username and Password provided.</li>
+<li>Browse hierarchy of Project “Training Data” and Dataset “siRNAi-HeLa” to find images. Several control images in the Dataset have “scram” in their name. Other images are named with siRNAi targets “IN” for INCENP and other names for minor INCENP variants.</li>
+</ol>
+</div><div class="column" style="display: flex; justify-content: center;">
+<p><img src="visuals/dataset_hierarchy.png" class="img-fluid" alt="Dataset hierarchy list" width="250"></p>
+</div>
+</div>
+<ol start="3" type="1">
+<li>Zoom the thumbnails using the slider below thumbnails.</li>
+<li>Use Shift+click or Ctrl+click to select multiple thumbnails that appear to be in Metaphase (one or two single lines appear in each cell as opposed to round blobs):</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/metaphase_zoom.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Image thumbnails with metaphase images and zoom slider highlighted"></p>
+</figure>
+</div>
+</section>
+<section id="tag-annotations" class="level2">
+<h2 class="anchored" data-anchor-id="tag-annotations">Tag annotations</h2>
+<ol start="5" type="1">
+<li>In the right-hand panel, expand the Tags pane and click on the <img src="visuals/plus_button.png" class="img-fluid" alt="plus"> button to add tags to all the selected images.</li>
+<li>In the “Tags Selection” dialog, you can select available Tags from the list on the left (filtering if needed). Find the “Metaphase” Tag and click on the <img src="visuals/rightarrow_button.png" class="img-fluid" alt="right arrow"> button to move it into the right-hand list then click “Save”.</li>
+<li>Add another Tag to the selected images: This time, create a new tag that is likely unique to you (see bottom left of Tag dialog) e.g.&nbsp;could be the name of your favourite gene or simply “Bob likes this”.</li>
+<li>Click the newly-added Metaphase Tag: <img src="visuals/metaphase_tag.png" class="img-fluid" alt="metaphase tag" width="100"> in the right-hand panel. This will browse by Tags to show all Images with this Tag, be those your images or images of your colleagues.
+<ul>
+<li>Notice at the top-left of the page that we are now browsing data belonging to Trainer-1, the owner of the Metaphase tag.</li>
+</ul></li>
+<li>You can also search for the tag using the search bar on the top right of the screen. By default, it will look for images that belong to you, but you can change the scope of that on the left-hand side of the search screen:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/search_scope.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="group and owner dropdowns for search" width="300"></p>
+</figure>
+</div>
+</section>
+<section id="filtering-images" class="level2">
+<h2 class="anchored" data-anchor-id="filtering-images">Filtering images</h2>
+<ol start="10" type="1">
+<li>Click Browse for one of the images in the table to return to the Dataset. At this point, make sure you are looking at your own images; check the top left corner of the screen. If you are not, click that bar and navigate back to your user:</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/group_selection.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="group and user selection dropdown" width="300"></p>
+</figure>
+</div>
+<ol start="11" type="1">
+<li>Above the thumbnails, click Add Filter &gt; Name and enter “scram” to filter for all control images in this RNAi experiment.</li>
+</ol>
+</section>
+<section id="preview-viewer" class="level2">
+<h2 class="anchored" data-anchor-id="preview-viewer">Preview viewer</h2>
+<div class="columns" style="display: flex">
+<div class="column" style="display: flex; justify-content: left; align-items: center;">
+<ol start="12" type="1">
+<li>Select an image, click the Preview tab of the right panel and Turn off channels 1 and 4 by clicking on the blue and red buttons.</li>
+<li>Adjust the intensity levels of the green channel which is INCENP, and channel 3 which is Aurora-B. You can use the Histogram feature to help you with the adjustments.</li>
+</ol>
+</div><div class="column" style="display: flex; justify-content: center;">
+<p><img src="visuals/preview_histogram.png" class="img-fluid" alt="Preview viewer with channels adjusted and histogram" width="250"></p>
+</div>
+</div>
+</section>
+<section id="bulk-saving-rendering-settings" class="level2">
+<h2 class="anchored" data-anchor-id="bulk-saving-rendering-settings">Bulk saving rendering settings</h2>
+<ol start="14" type="1">
+<li>We want to compare levels of these targets across all images in the Dataset. Click Save to All. <img src="visuals/save_to_all.png" class="img-fluid" width="100"></li>
+<li>Thumbnails will be updated with new rendering settings, allowing comparison across the Dataset. Thumbnails can be zoomed using the slider below.</li>
+<li>In the left panel hierarchy, right-click on the siRNAi-HeLa Dataset and choose Rendering Settings… &gt; Set Imported and Save to return to original settings.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/revert_rendering.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Steps to revert rendering to original imported settings"></p>
+</figure>
+</div>
+</section>
+<section id="ratings" class="level2">
+<h2 class="anchored" data-anchor-id="ratings">Ratings</h2>
+<ol start="16" type="1">
+<li>Filter images by Name “VRAQ D3D” and select the first image “VRAQ_01.r3d_D3D.dv”.</li>
+<li>In the General tab of the right-hand panel, expand the Ratings panel and click the stars to give this image a rating of 5.</li>
+<li>Filter images by Name “IN 02 D3D”, select the first image “IN_02.r3d_D3D.dv” and add a rating of 5.</li>
+</ol>
+<p><strong>Time for a break!</strong></p>
+</section>
+<section id="omero.iviewer" class="level2">
+<h2 class="anchored" data-anchor-id="omero.iviewer">OMERO.iviewer</h2>
+<ol start="18" type="1">
+<li>Now, clear the filtering by Name and instead, filter images by Rating of 5 to show only the 2 images we have just rated.</li>
+<li>Select both images, right click on the selected images in the tree and choose Open with… &gt; OMERO.iviewer. You can also find the Open with <img src="visuals/open_with.png" class="img-fluid" width="50"> option at the top of the right panel.</li>
+<li>Click the Crosshairs icon <img src="visuals/intensity_crosshairs.png" class="img-fluid" width="50"> at the top-right of the viewer to enable the pixel intensity display for the mouse pointer. Then mouse over the Image to see the pixel intensities for the channels turned on.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/intensity_mouseover.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="iviewer showing mouseover with pixel intensities"></p>
+</figure>
+</div>
+<ol start="21" type="1">
+<li>Our goal with this image is to measure the distance between centromeres, stained with ACA in the 4th Channel. Turn on ONLY the 4th channel and open the ROIs tab to the right.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/iviewer_steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="iviewer after following above instructions, with steps labelled"></p>
+</figure>
+</div>
+</section>
+<section id="drawing-rois-in-omero.iviewer" class="level2">
+<h2 class="anchored" data-anchor-id="drawing-rois-in-omero.iviewer">Drawing ROIs in OMERO.iviewer</h2>
+<ol start="22" type="1">
+<li>Select the Line tool and draw a line between the centers of centromere pairs. In the ROIs table, click the 3 dots in the column header and choose to Show Area/Length. Click Save to Save ROIs.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/roi_steps.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="iviewer on roi tab after following above instructions, with steps labelled"></p>
+</figure>
+</div>
+<ol start="23" type="1">
+<li>You can also use Z-Projection (<img src="visuals/zproj.png" class="img-fluid" width="50"> at the bottom left) which might help find outlying centromeres. Note that Z-Projection may not work for images with very large stacks!</li>
+<li>Once done with drawing ROIs, click Save again.</li>
+<li>Click on the Select tool: <img src="visuals/select.png" class="img-fluid" alt="image of select tool like mouse arrow" width="50"></li>
+<li>To export statistics, we first need to select all the ROIs using ctrl+drag (cmd+drag on a Mac) to select a region in the viewer (if ROIs are spread across multiple Z-sections, we can show them all at once using Z-projection). The selected ROIs will be highlighted blue on the image.</li>
+</ol>
+</section>
+<section id="export-roi-statistics" class="level2">
+<h2 class="anchored" data-anchor-id="export-roi-statistics">Export ROI statistics</h2>
+<ol start="27" type="1">
+<li>To export lengths and intensities of ONLY the 3rd channel (Aurora-B) turn on only this channel on the Settings tab of the right-hand panel.</li>
+<li>Export the Intensities, areas and line lengths into Excel. Select in the top-left corner ROIs &gt; Export as Table. This will export the values from the selected ROIs.</li>
+<li>Open the downloaded table in Excel or similar tool to see the lengths and intensity measurements for the ROIs.</li>
+</ol>
+</section>
+<section id="omero.figure" class="level2">
+<h2 class="anchored" data-anchor-id="omero.figure">OMERO.figure</h2>
+<ol start="30" type="1">
+<li>Back in the webclient window, select both 5-rated (VRAQ_01.r3d_D3D.dv and IN_02.r3d_D3D.dv), right-click them (on the left-side file list) and select Open with… -&gt; OMERO.figure.</li>
+<li>Change the paper orientation to horizontal in File &gt; Paper Setup.</li>
+</ol>
+</section>
+<section id="making-a-grid-in-omero.figure" class="level2">
+<h2 class="anchored" data-anchor-id="making-a-grid-in-omero.figure">Making a grid in OMERO.figure</h2>
+<ol start="32" type="1">
+<li>Drag the images to place one above the other, select both and click the Grid layout button <img src="visuals/grid_button.png" class="img-fluid" width="50">. Resize to make the figure smaller. Copy both images and paste twice to make a grid with 2 rows with 3 columns.</li>
+<li>Select both panels from each column in turn and toggle on a different channel for each column. Select all panels and try different Z indices and Z-projections.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/figure_channel_grid.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="OMERO.figure with blue, green, and red columns of images"></p>
+</figure>
+</div>
+</section>
+<section id="add-labels-to-figure" class="level2">
+<h2 class="anchored" data-anchor-id="add-labels-to-figure">Add labels to figure</h2>
+<ol start="34" type="1">
+<li>Select the 2 panels in the left column, click on the Labels tab in the right panel and under Add Labels choose [image-name] from the drop-down menu. Click on the position chooser and choose “Left Vertical” from the options. Click Add.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/figure_add_labels.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="OMERO.figure with labels tab adding image.name label with position dropdown open"></p>
+</figure>
+</div>
+</section>
+<section id="exporting-figures" class="level2">
+<h2 class="anchored" data-anchor-id="exporting-figures">Exporting figures</h2>
+<ol start="35" type="1">
+<li>Click Export PDF and then when complete, click the Download button. Open the downloaded pdf in any suitable program and find the second page of the pdf. Click on the link to the image and see that you are navigated back to OMERO in your browser and the appropriate image, which was used in the Figure, is highlighted.</li>
+</ol>
+</section>
+<section id="viewing-other-users-figures" class="level2">
+<h2 class="anchored" data-anchor-id="viewing-other-users-figures">Viewing other users’ figures</h2>
+<ol start="36" type="1">
+<li>Save the figure and see that the URL updates to a new URL for this figure which can be shared with colleagues. File &gt; Open can be used to open your own figures or those of colleagues.</li>
+<li>Click File &gt; Open, then click on the Owner button to select a figure of other users (your colleagues). Select and open other users’ figures and study them.</li>
+<li>With another user’s figure open, select File &gt; Save a Copy to save your own copy of your colleague’s figure. Note that you cannot directly save changes on their figure.</li>
+</ol>
+</section>
+</section>
+<section id="homework-for-day-2-make-sure-you-can-run-fiji" class="level1">
+<h1>Homework for Day 2: Make sure you can run Fiji</h1>
+<ol type="1">
+<li>Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e.&nbsp;Plugins &gt; OMERO &gt; Connect To OMERO</li>
+<li>In the OMERO login dialog, click the wrench icon and then add the server address (ctomerodev.jax.org – NOTE THIS IS A DIFFERENT ADDRESS!) in the dialog. Click Apply. Now, log in with the provided details (the same you have been using for the webpage).</li>
+<li>Find and open any image (double-click the thumbnail) to make sure things work!</li>
+</ol>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
