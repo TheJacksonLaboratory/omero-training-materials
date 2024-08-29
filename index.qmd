@@ -40,8 +40,14 @@ Images in OMERO can be directly accessed via other analysis platforms such as Qu
 
 [Official OMERO user documentation](https://omero-guides.readthedocs.io/en/latest/)
 
+# Setup
+1. The first session of this workshop does not require any additional setup. We will be using the OMERO webclient in a browser to view and annotate images.
 
-# Day 1: Viewing images in OMERO.web
+2. The second session of this workshop will require Fiji installed with the OMERO plugins:
+    a. Download Fiji from [https://fiji.sc/](https://fiji.sc/). If you already have a Fiji/ImageJ application, it's still best to download a recent version, but you don't have to remove your old Fiji/ImageJ to run the new one. 
+    b. Then follow the [installation instructions](https://omero-guides.readthedocs.io/en/latest/fiji/docs/installation.html) to add the OMERO plugin to Fiji.
+
+# Session 1: Viewing images in OMERO.web
 
 ## Browsing images
 :::: {.columns style='display: flex'}
@@ -57,12 +63,16 @@ Images in OMERO can be directly accessed via other analysis platforms such as Qu
 
 :::
 :::: 
-3. Zoom the thumbnails using the slider below thumbnails.
-4. Use Shift+click or Ctrl+click to select multiple thumbnails that appear to be in Metaphase (one or two single lines appear in each cell as opposed to round blobs):
+
+3. Click the dropdown in the top left that has your group name (training) and user name (Training User user-X). Hover over "training" and select "All Members". This allows you to view (but not necessarily edit) all images in the "training" group, including those owned by other users. Now use the same dropdown to switch back to your own user.
+
+![](visuals/user_group_dropdown.png){fig-alt="Dropdown open to show training group members with All Members highlighted." fig-align="center"} 
+
+## Tag annotations
+4. Zoom the thumbnails using the slider at the bottom. Use Shift+click or Ctrl+click to select multiple thumbnails that appear to be in Metaphase (one or two single lines appear in each cell as opposed to round blobs):
 
 ![](visuals/metaphase_zoom.png){fig-alt="Image thumbnails with metaphase images and zoom slider highlighted" fig-align="center"} 
 
-## Tag annotations
 5. In the right-hand panel, expand the Tags pane and click on the ![](visuals/plus_button.png){fig-alt="plus"} button to add tags to all the selected images.
 6. Create a new tag at the bottom of the pop-up window. First, create a "Metaphase" tag. Then, create a tag that is unique to you (but others in this training will see). Click Save.
 7. Re-click the plus button to add new tags, and you should see everyone's tags in the Available Tags list. Pick one you like, and click on the ![](visuals/rightarrow_button.png){fig-alt="right arrow"} button to move it into the right-hand list then click “Save”.
@@ -98,6 +108,8 @@ At this point, make sure you are looking at your own images; check the top left 
 
 :::
 :::: 
+
+Note that changing the rendering settings of the OMERO viewer is not altering the base image data.
 
 ## Bulk saving rendering settings
 17. We want to compare levels of these targets across all images in the Dataset. Click Save to All. ![](visuals/save_to_all.png){width=100}
@@ -162,7 +174,7 @@ At this point, make sure you are looking at your own images; check the top left 
 42. Click File > Open, then click on the Owner button to select a figure of other users (your colleagues). Select and open other users’ figures and study them.
 43. With another user’s figure open, select File > Save a Copy to save your own copy of your colleague’s figure. Note that you cannot directly save changes on their figure.
 
-# Homework for Day 2: Make sure you can run Fiji
+## Homework for Day 2: Make sure you can run Fiji
 1. Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e. *Plugins > OMERO > Connect To OMERO*
 
 ![](visuals/fiji_connect_omero.png){fig-alt="screenshot of fiji plugins dropdown selecting connect to omero" fig-align="center"}
@@ -173,7 +185,7 @@ At this point, make sure you are looking at your own images; check the top left 
 
 3. Find and open any image (double-click the thumbnail) to make sure things work!
 
-# Day 2: Analysis of OMERO images using Fiji
+# Session 2: Analysis of OMERO images using Fiji
 
 ## Data management in OMERO
 For this workshop, images have already been imported into OMERO. JAX uses a “dropbox” approach to importing images to OMERO; please contact us if your group wants to start using it and we will walk you through the process.
