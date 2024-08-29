@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.56">
+<meta name="generator" content="quarto-1.5.57">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -50,7 +50,8 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#where-does-omero-fit-into-the-jax-image-data-ecosystem" id="toc-where-does-omero-fit-into-the-jax-image-data-ecosystem" class="nav-link" data-scroll-target="#where-does-omero-fit-into-the-jax-image-data-ecosystem">Where does OMERO fit into the JAX image data ecosystem?</a></li>
   <li><a href="#other-resources" id="toc-other-resources" class="nav-link" data-scroll-target="#other-resources">Other resources</a></li>
   </ul></li>
-  <li><a href="#day-1-viewing-images-in-omero.web" id="toc-day-1-viewing-images-in-omero.web" class="nav-link" data-scroll-target="#day-1-viewing-images-in-omero.web">Day 1: Viewing images in OMERO.web</a>
+  <li><a href="#setup" id="toc-setup" class="nav-link" data-scroll-target="#setup">Setup</a></li>
+  <li><a href="#session-1-viewing-images-in-omero.web" id="toc-session-1-viewing-images-in-omero.web" class="nav-link" data-scroll-target="#session-1-viewing-images-in-omero.web">Session 1: Viewing images in OMERO.web</a>
   <ul class="collapse">
   <li><a href="#browsing-images" id="toc-browsing-images" class="nav-link" data-scroll-target="#browsing-images">Browsing images</a></li>
   <li><a href="#tag-annotations" id="toc-tag-annotations" class="nav-link" data-scroll-target="#tag-annotations">Tag annotations</a></li>
@@ -67,9 +68,9 @@ ul.task-list li input[type="checkbox"] {
   <li><a href="#add-labels-to-figure" id="toc-add-labels-to-figure" class="nav-link" data-scroll-target="#add-labels-to-figure">Add labels to figure</a></li>
   <li><a href="#exporting-figures" id="toc-exporting-figures" class="nav-link" data-scroll-target="#exporting-figures">Exporting figures</a></li>
   <li><a href="#viewing-other-users-figures" id="toc-viewing-other-users-figures" class="nav-link" data-scroll-target="#viewing-other-users-figures">Viewing other users’ figures</a></li>
-  </ul></li>
   <li><a href="#homework-for-day-2-make-sure-you-can-run-fiji" id="toc-homework-for-day-2-make-sure-you-can-run-fiji" class="nav-link" data-scroll-target="#homework-for-day-2-make-sure-you-can-run-fiji">Homework for Day 2: Make sure you can run Fiji</a></li>
-  <li><a href="#day-2-analysis-of-omero-images-using-fiji" id="toc-day-2-analysis-of-omero-images-using-fiji" class="nav-link" data-scroll-target="#day-2-analysis-of-omero-images-using-fiji">Day 2: Analysis of OMERO images using Fiji</a>
+  </ul></li>
+  <li><a href="#session-2-analysis-of-omero-images-using-fiji" id="toc-session-2-analysis-of-omero-images-using-fiji" class="nav-link" data-scroll-target="#session-2-analysis-of-omero-images-using-fiji">Session 2: Analysis of OMERO images using Fiji</a>
   <ul class="collapse">
   <li><a href="#data-management-in-omero" id="toc-data-management-in-omero" class="nav-link" data-scroll-target="#data-management-in-omero">Data management in OMERO</a></li>
   <li><a href="#connect-fiji-to-omero" id="toc-connect-fiji-to-omero" class="nav-link" data-scroll-target="#connect-fiji-to-omero">Connect Fiji to OMERO</a></li>
@@ -126,8 +127,19 @@ ul.task-list li input[type="checkbox"] {
 <p><a href="https://omero-guides.readthedocs.io/en/latest/">Official OMERO user documentation</a></p>
 </section>
 </section>
-<section id="day-1-viewing-images-in-omero.web" class="level1">
-<h1>Day 1: Viewing images in OMERO.web</h1>
+<section id="setup" class="level1">
+<h1>Setup</h1>
+<ol type="1">
+<li><p>The first session of this workshop does not require any additional setup. We will be using the OMERO webclient in a browser to view and annotate images.</p></li>
+<li><p>The second session of this workshop will require Fiji installed with the OMERO plugins:</p>
+<ol type="a">
+<li>Download Fiji from <a href="https://fiji.sc/">https://fiji.sc/</a>. If you already have a Fiji/ImageJ application, it’s still best to download a recent version, but you don’t have to remove your old Fiji/ImageJ to run the new one.</li>
+<li>Then follow the <a href="https://omero-guides.readthedocs.io/en/latest/fiji/docs/installation.html">installation instructions</a> to add the OMERO plugin to Fiji.</li>
+</ol></li>
+</ol>
+</section>
+<section id="session-1-viewing-images-in-omero.web" class="level1">
+<h1>Session 1: Viewing images in OMERO.web</h1>
 <section id="browsing-images" class="level2">
 <h2 class="anchored" data-anchor-id="browsing-images">Browsing images</h2>
 <div class="columns" style="display: flex">
@@ -141,17 +153,24 @@ ul.task-list li input[type="checkbox"] {
 </div>
 </div>
 <ol start="3" type="1">
-<li>Zoom the thumbnails using the slider below thumbnails.</li>
-<li>Use Shift+click or Ctrl+click to select multiple thumbnails that appear to be in Metaphase (one or two single lines appear in each cell as opposed to round blobs):</li>
+<li>Click the dropdown in the top left that has your group name (training) and user name (Training User user-X). Hover over “training” and select “All Members”. This allows you to view (but not necessarily edit) all images in the “training” group, including those owned by other users. Now use the same dropdown to switch back to your own user.</li>
+</ol>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="visuals/user_group_dropdown.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Dropdown open to show training group members with All Members highlighted."></p>
+</figure>
+</div>
+</section>
+<section id="tag-annotations" class="level2">
+<h2 class="anchored" data-anchor-id="tag-annotations">Tag annotations</h2>
+<ol start="4" type="1">
+<li>Zoom the thumbnails using the slider at the bottom. Use Shift+click or Ctrl+click to select multiple thumbnails that appear to be in Metaphase (one or two single lines appear in each cell as opposed to round blobs):</li>
 </ol>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
 <p><img src="visuals/metaphase_zoom.png" class="img-fluid quarto-figure quarto-figure-center figure-img" alt="Image thumbnails with metaphase images and zoom slider highlighted"></p>
 </figure>
 </div>
-</section>
-<section id="tag-annotations" class="level2">
-<h2 class="anchored" data-anchor-id="tag-annotations">Tag annotations</h2>
 <ol start="5" type="1">
 <li>In the right-hand panel, expand the Tags pane and click on the <img src="visuals/plus_button.png" class="img-fluid" alt="plus"> button to add tags to all the selected images.</li>
 <li>Create a new tag at the bottom of the pop-up window. First, create a “Metaphase” tag. Then, create a tag that is unique to you (but others in this training will see). Click Save.</li>
@@ -201,6 +220,7 @@ ul.task-list li input[type="checkbox"] {
 <p><img src="visuals/preview_histogram.png" class="img-fluid" alt="Preview viewer with channels adjusted and histogram" width="250"></p>
 </div>
 </div>
+<p>Note that changing the rendering settings of the OMERO viewer is not altering the base image data.</p>
 </section>
 <section id="bulk-saving-rendering-settings" class="level2">
 <h2 class="anchored" data-anchor-id="bulk-saving-rendering-settings">Bulk saving rendering settings</h2>
@@ -314,9 +334,8 @@ ul.task-list li input[type="checkbox"] {
 <li>With another user’s figure open, select File &gt; Save a Copy to save your own copy of your colleague’s figure. Note that you cannot directly save changes on their figure.</li>
 </ol>
 </section>
-</section>
-<section id="homework-for-day-2-make-sure-you-can-run-fiji" class="level1">
-<h1>Homework for Day 2: Make sure you can run Fiji</h1>
+<section id="homework-for-day-2-make-sure-you-can-run-fiji" class="level2">
+<h2 class="anchored" data-anchor-id="homework-for-day-2-make-sure-you-can-run-fiji">Homework for Day 2: Make sure you can run Fiji</h2>
 <ol type="1">
 <li>Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e.&nbsp;<em>Plugins &gt; OMERO &gt; Connect To OMERO</em></li>
 </ol>
@@ -337,8 +356,9 @@ ul.task-list li input[type="checkbox"] {
 <li>Find and open any image (double-click the thumbnail) to make sure things work!</li>
 </ol>
 </section>
-<section id="day-2-analysis-of-omero-images-using-fiji" class="level1">
-<h1>Day 2: Analysis of OMERO images using Fiji</h1>
+</section>
+<section id="session-2-analysis-of-omero-images-using-fiji" class="level1">
+<h1>Session 2: Analysis of OMERO images using Fiji</h1>
 <section id="data-management-in-omero" class="level2">
 <h2 class="anchored" data-anchor-id="data-management-in-omero">Data management in OMERO</h2>
 <p>For this workshop, images have already been imported into OMERO. JAX uses a “dropbox” approach to importing images to OMERO; please contact us if your group wants to start using it and we will walk you through the process.</p>
