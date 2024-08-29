@@ -283,5 +283,6 @@ Before starting the image segmentation workflow, check that *Process > Binary > 
 37. To export your figure as PDF, click the Export PDF button at the top-right of the screen and wait for the PDF to be created on the server and the Download button to appear. Click to download the PDF and import to a PDF editor. You can post-process the PDF in Inkscape or Adobe Illustrator/Photoshop for example.
 
 ## Fill out the workshop feedback survey
-<form action="https://forms.office.com/r/HcudssKGap" method="get" target="_blank"><button type="submit">Feedback survey</button></form>
+[Feedback survey](https://forms.office.com/r/HcudssKGap)
+
 Please let us know how you liked the pace and content of the workshop, so we can make it better in the future!
