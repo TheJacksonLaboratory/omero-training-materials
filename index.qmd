@@ -64,10 +64,9 @@ Images in OMERO can be directly accessed via other analysis platforms such as Qu
 
 ## Tag annotations
 5. In the right-hand panel, expand the Tags pane and click on the ![](visuals/plus_button.png){fig-alt="plus"} button to add tags to all the selected images.
-6. In the “Tags Selection” dialog, you can select available Tags from the list on the left (filtering if
-needed). Find the “Metaphase” Tag and click on the ![](visuals/rightarrow_button.png){fig-alt="right arrow"} button to move it into the right-hand list then click “Save”.
-7. Add another Tag to the selected images: This time, create a new tag that is likely unique to you (see bottom left of Tag dialog) e.g. could be the name of your favourite gene or simply “Bob likes this”.
-8. Click the newly-added Metaphase Tag: ![](visuals/metaphase_tag.png){fig-alt="metaphase tag" width=100} in the right-hand panel. This will browse by Tags to show all Images with this Tag, be those your images or images of your colleagues. 
+6. Create a new tag at the bottom of the pop-up window. First, create a "Metaphase" tag. Then, create a tag that is unique to you (but others in this training will see). Click Save.
+7. Re-click the plus button to add new tags, and you should see everyone's tags in the Available Tags list. Pick one you like, and click on the ![](visuals/rightarrow_button.png){fig-alt="right arrow"} button to move it into the right-hand list then click “Save”.
+8. Click the newly-added Metaphase Tag: ![](visuals/metaphase_tag.png){fig-alt="metaphase tag" width=100} in the right-hand panel. This will browse by Tags to show *all* Images with this Tag, be those your images or images of your colleagues. 
     - Notice at the top-left of the page that we are now browsing data belonging to Trainer-1, the owner of the Metaphase tag.
 9. You can also search for the tag using the search bar on the top right of the screen. By default, it will look for images that belong to you, but you can change the scope of that on the left-hand side of the
 search screen:
@@ -131,7 +130,7 @@ At this point, make sure you are looking at your own images; check the top left 
 ![](visuals/roi_steps.png){fig-alt="iviewer on roi tab after following above instructions, with steps labelled" fig-align="center"}
 
 28. You can also use Z-Projection (![](visuals/zproj.png){width=50} at the bottom left) which might help find outlying centromeres. Note that Z-Projection may not work for images with very large stacks!
-29. Once done with drawing ROIs, click Save again.
+29. Once done with drawing ROIs, click Save again. This is important to not lose your work and also to export intensities in the next few steps.
 30. Click on the Select tool: ![](visuals/select.png){fig-alt="image of select tool like mouse arrow" width=50}
 31. To export statistics, we first need to select all the ROIs using ctrl+drag (cmd+drag on a Mac) to select a region in the viewer (if ROIs are spread across multiple Z-sections, we can show them all at once using Z-projection). The selected ROIs will be highlighted blue on the image.
 
@@ -164,6 +163,125 @@ At this point, make sure you are looking at your own images; check the top left 
 43. With another user’s figure open, select File > Save a Copy to save your own copy of your colleague’s figure. Note that you cannot directly save changes on their figure.
 
 # Homework for Day 2: Make sure you can run Fiji
-1. Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e. Plugins > OMERO > Connect To OMERO
+1. Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e. *Plugins > OMERO > Connect To OMERO*
+
+![](visuals/fiji_connect_omero.png){fig-alt="screenshot of fiji plugins dropdown selecting connect to omero" fig-align="center"}
+
 2. In the OMERO login dialog, click the wrench icon and then add the server address (ctomerodev.jax.org – NOTE THIS IS A DIFFERENT ADDRESS!) in the dialog. Click Apply. Now, log in with the provided details (the same you have been using for the webpage).
+
+![](visuals/fiji_login.png){fig-alt="Fiji OMERO plugin login with server picker selecting ctomerodev.jax.org" fig-align="center"}
+
 3. Find and open any image (double-click the thumbnail) to make sure things work!
+
+# Day 2: Analysis of OMERO images using Fiji
+
+## Data management in OMERO
+For this workshop, images have already been imported into OMERO. JAX uses a “dropbox” approach to importing images to OMERO; please contact us if your group wants to start using it and we will walk you through the process.
+
+1. Login to the webclient at http://ctomeroweb01.jax.org/ with the Username and Password provided.
+2. Search for mitomycin-A in the Search field at the top right of webclient. This should find 32 images. To search for key-value pairs, we can use the search string key:value. To narrow down the search, search again for mitomycin-A:10microM. This should narrow it down to 8 images. find the “C4.pattern.tif” image in the Dataset “chromatin-condensation”. Click on *Browse* to get back to this image in webclient.
+3. Adjust channel names: Click on the pen icon ![](visuals/pen_icon.png){width=50} in the right-hand pane next to Channels. Input “Cy3” (instead of channel “0”) and “eGFP” (instead of channel “1”). Click Apply to all button and confirm by clicking *Continue*.
+4. Open the “C4.pattern.tif” Image with OMERO.iviewer, use the Time-slider below the image to move through time and play the video.
+
+## Connect Fiji to OMERO
+5. Start the Fiji app and use the OMERO plugin to browse data in OMERO i.e. *Plugins > OMERO > Connect To OMERO*
+
+![](visuals/fiji_connect_omero.png){fig-alt="screenshot of fiji plugins dropdown selecting connect to omero" fig-align="center"}
+
+6. In the OMERO login dialog, click the wrench icon and then add the server address (ctomerodev.jax.org – NOTE THIS IS A DIFFERENT ADDRESS!) in the dialog. Click Apply.
+
+![](visuals/fiji_login.png){fig-alt="Fiji OMERO plugin login with server picker selecting ctomerodev.jax.org" fig-align="center"}
+
+7. Find and open the same image from above “C4.pattern.tif” from Dataset “chromatin-condensation” (double-click on the thumbnail).
+
+## Threshold foreground
+Before starting the image segmentation workflow, check that *Process > Binary > Options* has *Black background* checked.
+
+![](visuals/fiji_binary_options.png){fig-alt="screenshot of binary options popup with black background checked" fig-align="center"}
+
+8. Click on the panel with the image. Select *Image > Adjust > Threshold*
+9. The Threshold dialog will pop up, click Apply.
+10. Another window Convert Stack to Binary will pop up 11. Select the following parameters:
+    a. Method: Default, Background: Dark, Calculate threshold for each Image and Black background (of binary masks).
+    b. Click OK.
+    c. Close the Threshold dialog if you want
+
+![](visuals/fiji_threshold.png){fig-alt="screenshot of fiji threshold dialogs that shows cells highlighted red" fig-align="center"}
+
+## Identify cells
+12. Select *Analyze > Analyze Particles*
+13. In the Analyze Particles dialog, select the following parameters
+    a. with Size: 50-infinity
+    b. Show: Outlines
+    c. Check: Display results, Clear results, Summarize and Add to Manager.
+
+![](visuals/fiji_analyze_particles.png){fig-alt="screenshot of fiji particles dialogues with options selected to match instructions above" fig-align="center"}
+
+14. Click OK.
+15. A dialog pops up asking to *Process all 46 images*? Click *Yes*
+16. ROIs, Results table, and the mask timelapse with outlines will be generated
+
+![](visuals/fiji_roi_resuts.png){fig-alt="collage of fiji results from running analyze particles, including outlines, ROI manager, results, etc" fig-align="center"}
+
+17. Select the Results table and Menu *Results > Distribution > OK*
+
+![](visuals/fiji_histogram.png){fig-alt="screenshot of distribution of roi areas" fig-align="center"}
+
+## Save cell ROIs back to OMERO
+18. In Fiji, select the original image (now also showing ROIs). You might need to do some digging through the sea of new windows you have. Then, select *Plugins > OMERO > Save ROIs to OMERO*.
+
+![](visuals/fiji_omero_rois_dropdown.png){fig-alt="screenshot of fiji plugins dropdown selecting save rois to omero" fig-align="center"}
+
+19. We want to Save ROI and Measurements, which will attach the results as a CSV attachment (to open for example in Excel) to the image in OMERO.
+
+![](visuals/fiji_omero_rois_popup.png){fig-alt="screenshot of fiji window for saving rois and measurements to omero, selecting both rois and measurements" fig-align="center"}
+
+20. Enter a File Name and click *Save* (Note: There is also a manual workflow which you could have used to attach the Excel sheets resulting from Workflow1 to OMERO.)
+
+## Save result images back to OMERO
+21. Select the image with outlines named “*Drawing of...*”. *Select File > Save As > Tiff...* and give it a meaningful name (outlines.tiff, for example).
+22. Now we will save the created images back to OMERO. select Plugins > OMERO > Save Image(s) to OMERO.
+23. You can now select in which project and dataset the new images are going to be imported into on the left-hand side. In this case, put them in your "Training Data" project and "chromatin-condensation" dataset.
+24. When you are done selecting project and dataset, check Add Images from all image windows. Click *Add to Queue* then *Import*.
+ 
+![](visuals/fiji_save_image_omero.png){fig-alt="screenshot of fiji import data window with boxes highlighting the project and dataset selectors, add images from all image windows, and add to queue" fig-align="center"}
+
+23. Return to the webclient and check that the new images have been placed in the correct project and dataset (you might need to press the refresh button ![](visuals/refresh.png){width=50} on the top left). After that, open the original image in OMERO.iviewer and inspect the newly created ROIs. Notice that you have ROIs for *each channel* on all *timeplanes*.
+24. We will not need Fiji any longer, so you can go ahead and close it if you want.
+
+**Time for a break!**
+
+## Display Fiji results in OMERO.figure
+24. Select the original C4.pattern.tif image, the ROIs image and distribution plot. Click on *Open with... OMERO.figure*.
+25. Copy and paste the original image using the Edit menu or keyboard shortcuts to duplicate it.
+26. Adjust the rendering settings in this image in the right panel, to turn off the Green channel and enhance the Red.
+27. Arrange these 2 images in a column with the ROIs image below, resizing as needed.
+
+![](visuals/figure_rois_arranged.png){fig-alt="screenshot of omero.figure with full color, red, and roi outlines in a column" fig-align="center"}
+
+28. Select the 3 panels and use the *Align Sizes > Width & Height* toolbar to ensure these panels are all the same size.
+
+![](visuals/align_widthheight.png){fig-alt="screenshot of omero.figure align sizes dropdown" fig-align="center"}
+
+29. Then click the Grid layout button ![](visuals/grid_button.png){width=50} in the same toolbar to snap the panels to a grid. 
+30. Copy the 3 panels and paste several times to create 3 new columns of 3 panels.
+31. Select just the upper 2 image panels from each new column in turn and in the right panel, drag the T-slider to set the time to index, e.g. 5 (20 mins), then 6 (25 mins) then 9 (40 mins).
+
+![](visuals/figure_time_grid.png){fig-alt="grid of images have different times per column, showing central cell splitting" fig-align="center"}
+
+32. The ROIs image got imported from Fiji Z-stack combining channels and times, so we have to choose the frame using the Z-slider. There are 46 planes in the Z stack, from 2 channels x 23 time points. To pick time-frames in the red channel that correspond to the 4 images above, set the Z-index for the 4 ROI images to 1, 9, 11 and 17 respectively.
+
+![](visuals/figure_outlines_z.png){fig-alt="outline images with z selected to match time" fig-align="center"}
+
+33. Select all the 12 panels in the grid and use the Zoom slider to zoom in. 
+34. Pan the images by dragging in the right-hand panel Preview image.
+
+![](visuals/figure_cell_zoom.png){fig-alt="all images zoomed into center cell" fig-align="center"}
+ 
+35. Select just the first row of images, click on the Labels tab in the right-hand panel. Under *Add Labels* choose *Time (T-Index)* from the drop-down menu. Choose label color (white), position (top-left) and font-size (12) then click *Add*.
+36. Click *Save* to save your figure.
+37. To export your figure as PDF, click the Export PDF button at the top-right of the screen and wait for the PDF to be created on the server and the Download button to appear. Click to download the PDF and import to a PDF editor. You can post-process the PDF in Inkscape or Adobe Illustrator/Photoshop for example.
+
+## Fill out the workshop feedback survey
+<form action="https://forms.office.com/r/HcudssKGap" method="get" target="_blank"><button type="submit">Feedback survey</button></form>
+Please let us know how you liked the pace and content of the workshop, so we can make it better in the future!
